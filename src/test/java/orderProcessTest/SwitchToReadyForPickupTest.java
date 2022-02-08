@@ -11,6 +11,9 @@ public class SwitchToReadyForPickupTest extends BaseTest {
                 .checkIsButtonExitDisplayed()
                 .clickOnProcessButton();
 
-
+        insideTheOrderPage
+                .checkIsButtonConfirmAvailabilityNotActive()
+                .checkIsOrderStatusDisplay()
+                .checkOrderStatus("Новый");
     }
 }
