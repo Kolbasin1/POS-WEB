@@ -6,10 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class OrdersPageWithHeaders extends ParentPage{
-    @FindBy(xpath = ".//*[contains(text(),'31000029414')]//..//button")
+    @FindBy(xpath = ".//*[contains(text(),'31000029628')]//..//button")
     private WebElement buttonProcess;
 
-    @FindBy(xpath = ".//*[contains(text(),'31000029414')]//..//*[@class='StatusName']")
+    @FindBy(xpath = ".//*[contains(text(),'31000029628')]//..//*[@class='StatusName']")
     private WebElement orderStatus;
 
     public OrdersPageWithHeaders(WebDriver webDriver) {
