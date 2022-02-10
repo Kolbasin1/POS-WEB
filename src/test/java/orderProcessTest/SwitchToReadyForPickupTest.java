@@ -28,7 +28,7 @@ public class SwitchToReadyForPickupTest extends BaseTest {
                 .clickButtonConfirmForPacking();
 
         insideTheOrderPage
-                .checkIsButtonAddBox()
+                .checkIsButtonAddBoxDisplayed()
                 .checkIsButtonCompletePackingNotActive()
                 .checkOrderStatus("На упаковке");
 
@@ -37,7 +37,7 @@ public class SwitchToReadyForPickupTest extends BaseTest {
 
         informationBoxOnThePage
                 .checkIsInfoBox()
-                .checkTextInToInfoBoxBoxAdded("Коробка добавлена")
+                .checkTextInToInfoBoxBoxAdded("Наличие товаров подтверждено")
                 .checkIsButtonContinue()
                 .clickButtonContinue();
 

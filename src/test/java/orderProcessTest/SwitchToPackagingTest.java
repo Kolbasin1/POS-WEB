@@ -28,7 +28,7 @@ public class SwitchToPackagingTest extends BaseTest {
                 .clickButtonConfirmForPacking();
 
         insideTheOrderPage
-                .checkIsButtonAddBox()
+                .checkIsButtonAddBoxDisplayed()
                 .checkIsButtonCompletePackingNotActive()
                 .checkOrderStatus("На упаковке");
 
