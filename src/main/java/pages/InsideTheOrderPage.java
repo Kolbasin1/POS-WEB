@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class InsideTheOrderPage extends OrdersPageWithHeaders{
     @FindBy(xpath = ".//*[@class='OrderItem-Order-footer-newBtn']//..//button[@class='OrderItem-btn v-btn v-btn--block v-btn--disabled v-btn--depressed theme--light primary--text']")
@@ -12,7 +13,7 @@ public class InsideTheOrderPage extends OrdersPageWithHeaders{
     @FindBy(xpath = ".//*[@class='OrderItem-Order-footer-newBtn']//button[@class='OrderItem-btn v-btn v-btn--block v-btn--depressed theme--light primary']")
     private WebElement buttonConfirmAvailabilityActive;   // активная кнопка
 
-    @FindBy(xpath = ".//button[@class='OrderItem-btn-nobg v-btn v-btn--block v-btn--depressed theme--light primary']")
+    @FindBy(xpath = ".//button[@class='OrderItem-btn-nobg v-btn v-btn--block v-btn--depressed theme--light primary' ]//..//*[@class='v-btn__content']")
     private WebElement buttonAddBox;
 
     @FindBy(xpath = ".//*[@class='OrderItem-Order-footer-onPackingbtn']//button[@class='OrderItem-btn v-btn v-btn--block v-btn--disabled theme--light primary--text' and @disabled='disabled']")
@@ -60,6 +61,12 @@ public class InsideTheOrderPage extends OrdersPageWithHeaders{
         return isElementDisplayed(buttonAddBox);
     }
 
+    public InsideTheOrderPage clickButtonAddBox(){
+        webDriverWait10.until(ExpectedConditions.elementToBeClickable(buttonAddBox));
+        clickOnElement(buttonAddBox);
+        return this;
+    }
+
     public InsideTheOrderPage checkIsButtonCompletePackingNotActive() {
         waitTime();
         Assert.assertTrue("Button CompletePacking is not displayed", isButtonCompletePackingNotActive());
@@ -78,5 +85,10 @@ public class InsideTheOrderPage extends OrdersPageWithHeaders{
 
     private boolean isButtonCompletePackingActive() {
         return isElementDisplayed(buttonCompletePackingActive);
+    }
+
+    public InsideTheOrderPage clickButtonCompletePacking() {
+        clickOnElement(buttonCompletePackingActive);
+        return this;
     }
 }
