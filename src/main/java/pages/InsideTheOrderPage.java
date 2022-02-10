@@ -13,7 +13,7 @@ public class InsideTheOrderPage extends OrdersPageWithHeaders{
     @FindBy(xpath = ".//*[@class='OrderItem-Order-footer-newBtn']//button[@class='OrderItem-btn v-btn v-btn--block v-btn--depressed theme--light primary']")
     private WebElement buttonConfirmAvailabilityActive;   // активная кнопка
 
-    @FindBy(xpath = ".//button[@class='OrderItem-btn-nobg v-btn v-btn--block v-btn--depressed theme--light primary' ]//..//*[@class='v-btn__content']")
+    @FindBy(xpath = ".//*[contains(text(), 'Добавить коробку')]")
     private WebElement buttonAddBox;
 
     @FindBy(xpath = ".//*[@class='OrderItem-Order-footer-onPackingbtn']//button[@class='OrderItem-btn v-btn v-btn--block v-btn--disabled theme--light primary--text' and @disabled='disabled']")
