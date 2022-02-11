@@ -27,6 +27,8 @@ public class SwitchToReadyForPickupTest extends BaseTest {
                 .checkIsInfoBox()
                 .clickButtonConfirmForPacking();
 
+//TODO добавить обработку еще одного всплывающего окна
+
         insideTheOrderPage
                 .checkIsButtonAddBoxDisplayed()
                 .checkIsButtonCompletePackingNotActive()
