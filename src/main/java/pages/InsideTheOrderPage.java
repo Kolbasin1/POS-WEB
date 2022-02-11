@@ -22,6 +22,9 @@ public class InsideTheOrderPage extends OrdersPageWithHeaders{
     @FindBy(xpath = ".//*[@class='OrderItem-Order-footer-onPackingbtn']//button[@class='OrderItem-btn v-btn v-btn--block theme--light primary']")
     private WebElement buttonCompletePackingActive;
 
+    @FindBy(xpath = ".//button[@class='v-btn v-btn--block v-btn--depressed theme--light Item-check-btn']")
+    private WebElement buttonNotAvailable;
+
     public InsideTheOrderPage(WebDriver webDriver) {
         super(webDriver);
     }
@@ -89,6 +92,22 @@ public class InsideTheOrderPage extends OrdersPageWithHeaders{
 
     public InsideTheOrderPage clickButtonCompletePacking() {
         clickOnElement(buttonCompletePackingActive);
+        return this;
+    }
+
+    public InsideTheOrderPage checkIsButtonNotAvailableDisplay() {
+        waitTime();
+        Assert.assertTrue("Button NOT AVAILABLE is not displayed", isButtonNotAvailableDisplayed());
+        return this;
+    }
+
+    private boolean isButtonNotAvailableDisplayed() {
+        return isElementDisplayed(buttonNotAvailable);
+    }
+
+    public InsideTheOrderPage clickOnButtonNotAvailable() {
+        webDriverWait10.until(ExpectedConditions.elementToBeClickable(buttonNotAvailable));
+        clickOnElement(buttonNotAvailable);
         return this;
     }
 }
