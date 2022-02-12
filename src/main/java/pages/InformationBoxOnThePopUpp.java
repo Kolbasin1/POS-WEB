@@ -4,8 +4,8 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import java.text.BreakIterator;
 
 public class InformationBoxOnThePopUpp extends OrdersPageWithHeaders{
     @FindBy(xpath = ".//*[@class='v-card v-sheet theme--light']")
@@ -29,7 +29,7 @@ public class InformationBoxOnThePopUpp extends OrdersPageWithHeaders{
 
 
     public InformationBoxOnThePopUpp checkIsInfoBox() {
-        waitTime();
+        webDriverWait10.until(ExpectedConditions.visibilityOf(infoBox));
         Assert.assertTrue("Info box is not displayed", isIsInfoBoxDisplayed());
         return this;
     }
