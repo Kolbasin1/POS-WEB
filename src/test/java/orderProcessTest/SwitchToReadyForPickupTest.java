@@ -30,8 +30,6 @@ public class SwitchToReadyForPickupTest extends BaseTest {
                 .checkIsButtonContinueWorkWithOrder()
                 .clickButtonContinueWorkWithOrder();
 
-//TODO добавить обработку еще одного всплывающего окна
-
         insideTheOrderPage
                 .checkIsButtonAddBoxDisplayed()
                 .checkIsButtonCompletePackingNotActive()
