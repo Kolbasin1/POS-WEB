@@ -25,7 +25,10 @@ public class SwitchToReadyForPickupTest extends BaseTest {
 
         informationBoxOnThePage
                 .checkIsInfoBox()
-                .clickButtonConfirmForPacking();
+                .clickButtonConfirmForPacking()
+                .checkIsInfoBox()
+                .checkIsButtonContinueWorkWithOrder()
+                .clickButtonContinueWorkWithOrder();
 
 //TODO добавить обработку еще одного всплывающего окна
 
@@ -39,7 +42,7 @@ public class SwitchToReadyForPickupTest extends BaseTest {
 
         informationBoxOnThePage
                 .checkIsInfoBox()
-                .checkTextInToInfoBoxBoxAdded("Наличие товаров подтверждено")
+                .checkTextInToInfoBoxBoxAdded("Коробка добавлена")
                 .checkIsButtonContinue()
                 .clickButtonContinue();
 
@@ -52,7 +55,7 @@ public class SwitchToReadyForPickupTest extends BaseTest {
                 .clickButtonConfirmForPacking()
                 .checkIsInfoBox()
                 .checkTextInToInfoBoxOrderPacking("Заказ доступен для выдачи")
-                .clickButtonConfirmForPacking();
+                .clickButtonContinueWorkWithOrder();
 
         insideTheOrderPage
                 .checkIsOrderStatusDisplay()
