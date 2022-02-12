@@ -4,8 +4,8 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import java.text.BreakIterator;
 
 public class InformationBoxOnThePopUpp extends OrdersPageWithHeaders{
     @FindBy(xpath = ".//*[@class='v-card v-sheet theme--light']")
@@ -23,13 +23,16 @@ public class InformationBoxOnThePopUpp extends OrdersPageWithHeaders{
     @FindBy(xpath = ".//*[@class='v-card v-sheet theme--light']//..//*[@class='NoItem-body']")
     private WebElement orderPackingText;
 
+    @FindBy(xpath = ".//button[@class='NoItem-confirm-btn btnOnGo v-btn v-btn--large theme--light primary']")
+    private WebElement buttonContinueWorkWithOrder;
+
     public InformationBoxOnThePopUpp(WebDriver webDriver) {
         super(webDriver);
     }
 
 
     public InformationBoxOnThePopUpp checkIsInfoBox() {
-        waitTime();
+        webDriverWait10.until(ExpectedConditions.visibilityOf(infoBox));
         Assert.assertTrue("Info box is not displayed", isIsInfoBoxDisplayed());
         return this;
     }
@@ -69,6 +72,21 @@ public class InformationBoxOnThePopUpp extends OrdersPageWithHeaders{
         waitTime();
         Assert.assertEquals("Text does not match", text, orderPackingText.getText());
         logger.info(orderPackingText.getText());
+        return this;
+    }
+
+    public InformationBoxOnThePopUpp checkIsButtonContinueWorkWithOrder() {
+        webDriverWait10.until(ExpectedConditions.visibilityOf(buttonContinueWorkWithOrder));
+        Assert.assertTrue("", isButtonContinueWorkWithOrderDisplayed());
+        return this;
+    }
+
+    private boolean isButtonContinueWorkWithOrderDisplayed() {
+        return isElementDisplayed(buttonContinueWorkWithOrder);
+    }
+
+    public InformationBoxOnThePopUpp clickButtonContinueWorkWithOrder() {
+        clickOnElement(buttonContinueWorkWithOrder);
         return this;
     }
 }

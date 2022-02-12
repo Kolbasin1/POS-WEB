@@ -25,10 +25,13 @@ public class SwitchToReadyForPickupTest extends BaseTest {
 
         informationBoxOnThePage
                 .checkIsInfoBox()
-                .clickButtonConfirmForPacking();
+                .clickButtonConfirmForPacking()
+                .checkIsInfoBox()
+                .checkIsButtonContinueWorkWithOrder()
+                .clickButtonContinueWorkWithOrder();
 
         insideTheOrderPage
-                .checkIsButtonAddBox()
+                .checkIsButtonAddBoxDisplayed()
                 .checkIsButtonCompletePackingNotActive()
                 .checkOrderStatus("На упаковке");
 
@@ -50,7 +53,7 @@ public class SwitchToReadyForPickupTest extends BaseTest {
                 .clickButtonConfirmForPacking()
                 .checkIsInfoBox()
                 .checkTextInToInfoBoxOrderPacking("Заказ доступен для выдачи")
-                .clickButtonConfirmForPacking();
+                .clickButtonContinueWorkWithOrder();
 
         insideTheOrderPage
                 .checkIsOrderStatusDisplay()

@@ -1,6 +1,7 @@
 package pages;
 
-import libs.TestData;
+import libs.TestDataStage;
+import libs.TestDataTest;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,16 +20,16 @@ public class Warehouse extends InsideTheOrderPage{
     @FindBy(xpath = ".//*[@class='OrderItem-Order-itemsblock']//..//*[@role='combobox']//../*[@class='v-input__slot']")
     private WebElement selectWarehouse;
 
-    @FindBy(xpath = TestData.WAREHOUSE_1)
+    @FindBy(xpath = TestDataTest.WAREHOUSE_1)
     public WebElement selectedWarehouse1;  // не получается подобрать локатор к определенному складу
 
-    @FindBy(xpath = TestData.WAREHOUSE_2)
+    @FindBy(xpath = TestDataStage.WAREHOUSE_2)
     public WebElement selectedWarehouse2;
 
-    @FindBy(xpath = TestData.WAREHOUSE_3)
+    @FindBy(xpath = TestDataStage.WAREHOUSE_3)
     public WebElement selectedWarehouse3;
 
-    @FindBy(xpath = TestData.WAREHOUSE_4)
+    @FindBy(xpath = TestDataStage.WAREHOUSE_4)
     public WebElement selectedWarehouse4;
 
     @FindBy(tagName = "select")
@@ -72,7 +73,7 @@ public class Warehouse extends InsideTheOrderPage{
         checkIsStockChoiceAvailability();
         checkIsRadioButtonAllIsActive();
         clickOnSelectWarehouse();
-        choiceWarehouse(selectedWarehouse4);
+        choiceWarehouse(selectedWarehouse1);
         return new Warehouse(webDriver);
     }
 

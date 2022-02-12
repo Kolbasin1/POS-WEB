@@ -17,7 +17,7 @@ public class AddWarehouseToOrderTest extends BaseTest {
                  .checkIsStockChoiceAvailability()
 //                 .checkIsRadioButtonAllIsActive()  //падает, пишет что нет элемента хотя локатор в браузере находит
                  .clickOnSelectWarehouse()
-                 .choiceWarehouse(warehouse.selectedWarehouse4)
+                 .choiceWarehouse(warehouse.selectedWarehouse1)
                  .checkIsButtonConfirmAvailabilityActive();
     }
 }
