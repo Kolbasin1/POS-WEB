@@ -1,15 +1,15 @@
 package loginTest;
 
 import baseTest.BaseTest;
-import libs.TestData;
+import libs.TestDataStage;
 import org.junit.Test;
 
 public class LoginTestWithPageObject extends BaseTest {
     @Test
     public void validLoginTest(){
         loginPage.openLoginPage();
-        loginPage.enterLoginIntoInputLogin(TestData.VALID_LOGIN);
-        loginPage.enterLoginIntoInputPassword(TestData.VALID_PASS);
+        loginPage.enterLoginIntoInputLogin(TestDataStage.VALID_LOGIN);
+        loginPage.enterLoginIntoInputPassword(TestDataStage.VALID_PASS);
         loginPage.clickOnButtonEnter();
         orderPage.checkIsButtonExitDisplayed();
     }
@@ -17,8 +17,8 @@ public class LoginTestWithPageObject extends BaseTest {
     @Test
     public void negativeLoginTestWrongLogin1(){
         loginPage.openLoginPage();
-        loginPage.enterLoginIntoInputLogin(TestData.INVALID_LOGIN_1);
-        loginPage.enterLoginIntoInputPassword(TestData.VALID_PASS);
+        loginPage.enterLoginIntoInputLogin(TestDataStage.INVALID_LOGIN_1);
+        loginPage.enterLoginIntoInputPassword(TestDataStage.VALID_PASS);
         loginPage.clickOnButtonEnter();
         loginPage.checkErrorMassageTextDisplayed();
         orderPage.checkIsButtonExitNotDisplayed();
@@ -27,8 +27,8 @@ public class LoginTestWithPageObject extends BaseTest {
     @Test
     public void negativeLoginTestWrongLogin2(){
         loginPage.openLoginPage();
-        loginPage.enterLoginIntoInputLogin(TestData.INVALID_LOGIN_2);
-        loginPage.enterLoginIntoInputPassword(TestData.VALID_PASS);
+        loginPage.enterLoginIntoInputLogin(TestDataStage.INVALID_LOGIN_2);
+        loginPage.enterLoginIntoInputPassword(TestDataStage.VALID_PASS);
         loginPage.clickOnButtonEnter();
         loginPage.checkErrorMassageTextDisplayed();
         orderPage.checkIsButtonExitNotDisplayed();
@@ -37,8 +37,8 @@ public class LoginTestWithPageObject extends BaseTest {
     @Test
     public void negativeLoginTestWrongLogin3(){
         loginPage.openLoginPage();
-        loginPage.enterLoginIntoInputLogin(TestData.INVALID_LOGIN_3);
-        loginPage.enterLoginIntoInputPassword(TestData.VALID_PASS);
+        loginPage.enterLoginIntoInputLogin(TestDataStage.INVALID_LOGIN_3);
+        loginPage.enterLoginIntoInputPassword(TestDataStage.VALID_PASS);
         loginPage.clickOnButtonEnter();
         loginPage.checkErrorMassageTextDisplayed();
         orderPage.checkIsButtonExitNotDisplayed();
@@ -47,8 +47,8 @@ public class LoginTestWithPageObject extends BaseTest {
     @Test
     public void negativeLoginTestWrongLogin4(){
         loginPage.openLoginPage();
-        loginPage.enterLoginIntoInputLogin(TestData.INVALID_LOGIN_4);
-        loginPage.enterLoginIntoInputPassword(TestData.VALID_PASS);
+        loginPage.enterLoginIntoInputLogin(TestDataStage.INVALID_LOGIN_4);
+        loginPage.enterLoginIntoInputPassword(TestDataStage.VALID_PASS);
         loginPage.clickOnButtonEnter();
         loginPage.checkErrorMassageTextDisplayed();
         orderPage.checkIsButtonExitNotDisplayed();
@@ -57,8 +57,8 @@ public class LoginTestWithPageObject extends BaseTest {
     @Test
     public void negativeLoginTestWrongPassWord1(){
         loginPage.openLoginPage();
-        loginPage.enterLoginIntoInputLogin(TestData.VALID_LOGIN);
-        loginPage.enterLoginIntoInputPassword(TestData.INVALID_PASS_1);
+        loginPage.enterLoginIntoInputLogin(TestDataStage.VALID_LOGIN);
+        loginPage.enterLoginIntoInputPassword(TestDataStage.INVALID_PASS_1);
         loginPage.clickOnButtonEnter();
         loginPage.checkErrorMassageTextDisplayed();
         loginPage.checkIsButtonEnterDisplayed();
@@ -68,8 +68,8 @@ public class LoginTestWithPageObject extends BaseTest {
     @Test
     public void negativeLoginTestWrongPassWord2(){
         loginPage.openLoginPage();
-        loginPage.enterLoginIntoInputLogin(TestData.VALID_LOGIN);
-        loginPage.enterLoginIntoInputPassword(TestData.INVALID_PASS_2);
+        loginPage.enterLoginIntoInputLogin(TestDataStage.VALID_LOGIN);
+        loginPage.enterLoginIntoInputPassword(TestDataStage.INVALID_PASS_2);
         loginPage.clickOnButtonEnter();
         orderPage.checkIsButtonExitDisplayed();
     }
@@ -77,8 +77,8 @@ public class LoginTestWithPageObject extends BaseTest {
     @Test
     public void negativeLoginTestWrongPassWord3(){
         loginPage.openLoginPage();
-        loginPage.enterLoginIntoInputLogin(TestData.VALID_LOGIN);
-        loginPage.enterLoginIntoInputPassword(TestData.INVALID_PASS_3);
+        loginPage.enterLoginIntoInputLogin(TestDataStage.VALID_LOGIN);
+        loginPage.enterLoginIntoInputPassword(TestDataStage.INVALID_PASS_3);
         loginPage.clickOnButtonEnter();
         loginPage.checkErrorMassageTextDisplayed();
         loginPage.checkErrorMassagePasswordField();
@@ -88,8 +88,8 @@ public class LoginTestWithPageObject extends BaseTest {
     @Test
     public void negativeLoginTestWrongPassWord4(){
         loginPage.openLoginPage();
-        loginPage.enterLoginIntoInputLogin(TestData.VALID_LOGIN);
-        loginPage.enterLoginIntoInputPassword(TestData.INVALID_PASS_4);
+        loginPage.enterLoginIntoInputLogin(TestDataStage.VALID_LOGIN);
+        loginPage.enterLoginIntoInputPassword(TestDataStage.INVALID_PASS_4);
         loginPage.clickOnButtonEnter();
         loginPage.checkErrorMassageTextDisplayed();
         loginPage.checkErrorMassagePasswordField();

@@ -1,6 +1,6 @@
 package libs;
 
-public class TestData {
+public class TestDataStage {
     public final static String VALID_LOGIN = "994555123456-312";
     public final static String VALID_PASS = "4JFP4hmD";
 
@@ -18,4 +18,6 @@ public class TestData {
     public final static String WAREHOUSE_2 = ".//span[text()='Гянджлик молл']";
     public final static String WAREHOUSE_3 = ".//span[text()='Test-03']";
     public final static String WAREHOUSE_4 = ".//span[text()='№ 15']";
+
+    public final static String URL_STAGE = "https://mp-pos-web-stage.umico.az/login";
 }

@@ -1,6 +1,6 @@
 package pages;
 
-import libs.TestData;
+import libs.TestDataTest;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,7 +32,7 @@ public class LoginPage extends ParentPage{
 
     public void openLoginPage(){
         try {
-            webDriver.get("https://mp-pos-web-stage.umico.az/login");
+            webDriver.get(TestDataTest.URL_TEST);
             logger.info("Login Page was opened");
         }catch (Exception e){
             logger.error("Can not open Login Page" + e);
@@ -95,8 +95,8 @@ public class LoginPage extends ParentPage{
 
     public OrdersPage loginWithValidCred(){
         openLoginPage();
-        enterLoginIntoInputLogin(TestData.VALID_LOGIN);
-        enterLoginIntoInputPassword(TestData.VALID_PASS);
+        enterLoginIntoInputLogin(TestDataTest.VALID_LOGIN);
+        enterLoginIntoInputPassword(TestDataTest.VALID_PASS);
         clickOnButtonEnter();
         return new OrdersPage(webDriver);
     }

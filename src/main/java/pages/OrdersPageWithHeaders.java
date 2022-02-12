@@ -38,14 +38,4 @@ public class OrdersPageWithHeaders extends ParentPage{
         Assert.assertTrue("Order status is not displayed", isOrderStatusDisplay());
         return this;
     }
-
-//    public OrdersPageWithHeaders checkStatusNew() {
-//        waitTime();
-//        Assert.assertTrue("Status not NEW", isStatusNewDisplayed());
-//        return this;
-//    }
-
-//    private boolean isStatusNewDisplayed() {
-//        return isElementDisplayed(statusNew);
-//    }
 }
