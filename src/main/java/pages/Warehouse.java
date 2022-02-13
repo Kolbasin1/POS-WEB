@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class Warehouse extends InsideTheOrderPage{
     @FindBy(xpath = ".//input[@readonly='readonly' and @placeholder='Выберите склад']")
