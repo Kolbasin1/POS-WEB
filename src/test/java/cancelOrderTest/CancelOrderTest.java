@@ -19,6 +19,19 @@ public class CancelOrderTest extends BaseTest {
         insideTheOrderPage
                 .checkIsButtonNotAvailableDisplay()
                 .clickOnButtonNotAvailable()
-        ;
+                .checkIsButtonConfirmAvailabilityActive()
+                .checkTextIsButtonConfirmAvailabilityActive("ОТПРАВИТЬ НА УТОЧНЕНИЕ")
+                .clickOnButtonConfirmAvailability();
+
+        informationBoxOnThePage
+                .checkIsInfoBox()
+                .checkTextInToInfoBoxNotAvailable("Товара нет в наличии")
+                .clickButtonConfirmForPacking()
+                .checkIsInfoBox()
+                .clickButtonConfirmForPacking();
+
+        insideTheOrderPage
+                .checkIsOrderStatusDisplay()
+                .checkOrderStatus("Отменен");
     }
 }

@@ -110,4 +110,11 @@ public class InsideTheOrderPage extends OrdersPageWithHeaders{
         clickOnElement(buttonNotAvailable);
         return this;
     }
+
+    public InsideTheOrderPage checkTextIsButtonConfirmAvailabilityActive(String text) {
+        webDriverWait10.until(ExpectedConditions.visibilityOf(buttonConfirmAvailabilityActive));
+        Assert.assertEquals("The button did not change the text", text, buttonConfirmAvailabilityActive.getText());
+        logger.info("The button changed the text to " + buttonConfirmAvailabilityActive.getText());
+        return this;
+    }
 }

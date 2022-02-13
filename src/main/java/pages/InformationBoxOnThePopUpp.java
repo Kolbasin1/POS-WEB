@@ -26,6 +26,9 @@ public class InformationBoxOnThePopUpp extends OrdersPageWithHeaders{
     @FindBy(xpath = ".//button[@class='NoItem-confirm-btn btnOnGo v-btn v-btn--large theme--light primary']")
     private WebElement buttonContinueWorkWithOrder;
 
+    @FindBy(xpath = ".//*[@class='v-card v-sheet theme--light']//..//span[text()='Товара нет в наличии']")
+    private WebElement popupNotAvailable;
+
     public InformationBoxOnThePopUpp(WebDriver webDriver) {
         super(webDriver);
     }
@@ -47,7 +50,8 @@ public class InformationBoxOnThePopUpp extends OrdersPageWithHeaders{
     }
 
     public InformationBoxOnThePopUpp checkTextInToInfoBoxBoxAdded(String text) {
-        waitTime();
+//        waitTime();
+        webDriverWait10.until(ExpectedConditions.visibilityOf(boxAddedText));
         Assert.assertEquals("Box was added is not displayed", text, boxAddedText.getText());
         logger.info("Text " + boxAddedText.getText() + " displayed");
         return this;
@@ -87,6 +91,13 @@ public class InformationBoxOnThePopUpp extends OrdersPageWithHeaders{
 
     public InformationBoxOnThePopUpp clickButtonContinueWorkWithOrder() {
         clickOnElement(buttonContinueWorkWithOrder);
+        return this;
+    }
+
+    public InformationBoxOnThePopUpp checkTextInToInfoBoxNotAvailable(String text) {
+        webDriverWait10.until(ExpectedConditions.visibilityOf(popupNotAvailable));
+        Assert.assertEquals("This is not a window out of stock", text, popupNotAvailable.getText());
+        logger.info(popupNotAvailable);
         return this;
     }
 }

@@ -7,10 +7,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class OrdersPageWithHeaders extends ParentPage{
-    @FindBy(xpath = ".//*[contains(text(),'31000007797')]//..//button")
+    @FindBy(xpath = ".//*[contains(text(),'31000007795')]//..//button")
     private WebElement buttonProcess;
 
-    @FindBy(xpath = ".//*[contains(text(),'31000007797')]//..//*[@class='StatusName']")
+    @FindBy(xpath = ".//*[contains(text(),'31000007795')]//..//*[@class='StatusName']")
     private WebElement orderStatus;
 
     public OrdersPageWithHeaders(WebDriver webDriver) {
@@ -23,7 +23,7 @@ public class OrdersPageWithHeaders extends ParentPage{
 
     public OrdersPageWithHeaders checkOrderStatus(String text) {
         webDriverWait10.until(ExpectedConditions.visibilityOf(orderStatus));
-        waitTime();
+//        waitTime();
         Assert.assertEquals("Status is not actual", text, orderStatus.getText());
         logger.info("order status is " + orderStatus.getText());
         return this;
