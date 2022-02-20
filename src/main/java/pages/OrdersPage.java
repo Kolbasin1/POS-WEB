@@ -25,8 +25,9 @@ public class OrdersPage extends OrdersPageWithHeaders{
     }
 
     public OrdersPage checkIsButtonExitDisplayed(){
-        waitTime();
-//        webDriverWait10.until(ExpectedConditions.visibilityOf(buttonExit));
+//        waitTime();
+//  TODO
+        webDriverWait10.until(ExpectedConditions.visibilityOf(buttonExit));
         Assert.assertTrue("Button Exit is not displayed", isButtonExitDisplayed());
         return this;
     }

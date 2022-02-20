@@ -25,18 +25,23 @@ public class InsideTheOrderPage extends OrdersPageWithHeaders{
     @FindBy(xpath = ".//button[@class='v-btn v-btn--block v-btn--depressed theme--light Item-check-btn']")
     private WebElement buttonNotAvailable;
 
+    @FindBy(xpath = ".//*[@class='OrderItem-Order-footer-newBtn']//button[@class='OrderItem-btn-nobg v-btn v-btn--block v-btn--depressed theme--light primary']")
+    private WebElement buttonCancelOrder;
+
     public InsideTheOrderPage(WebDriver webDriver) {
         super(webDriver);
     }
 
     public InsideTheOrderPage checkIsButtonConfirmAvailabilityNotActive() {
-        waitTime();
+//        waitTime();
+        webDriverWait10.until(ExpectedConditions.visibilityOf(buttonConfirmAvailabilityNotActive));
         Assert.assertTrue("Button Confirm Availability is displayed", isButtonConfirmAvailabilityNotActive());
         return this;
     }
 
     public InsideTheOrderPage checkIsButtonConfirmAvailabilityActive() {
-        waitTime();
+//        waitTime();
+        webDriverWait10.until(ExpectedConditions.visibilityOf(buttonConfirmAvailabilityActive));
         Assert.assertTrue("Button is active not displayed", isButtonConfirmAvailabilityActive());
         return this;
     }
@@ -55,7 +60,8 @@ public class InsideTheOrderPage extends OrdersPageWithHeaders{
     }
 
     public InsideTheOrderPage checkIsButtonAddBoxDisplayed() {
-        waitTime();
+//        waitTime();
+        webDriverWait10.until(ExpectedConditions.visibilityOf(buttonAddBox));
         Assert.assertTrue("Button Add Box is not displayed", isButtonAddBoxDisplayed());
         return this;
     }
@@ -71,7 +77,8 @@ public class InsideTheOrderPage extends OrdersPageWithHeaders{
     }
 
     public InsideTheOrderPage checkIsButtonCompletePackingNotActive() {
-        waitTime();
+//        waitTime();
+        webDriverWait10.until(ExpectedConditions.elementToBeClickable(buttonCompletePackingNotActive));
         Assert.assertTrue("Button CompletePacking is not displayed", isButtonCompletePackingNotActive());
         return this;
     }
@@ -96,7 +103,8 @@ public class InsideTheOrderPage extends OrdersPageWithHeaders{
     }
 
     public InsideTheOrderPage checkIsButtonNotAvailableDisplay() {
-        waitTime();
+//        waitTime();
+        webDriverWait10.until(ExpectedConditions.visibilityOf(buttonNotAvailable));
         Assert.assertTrue("Button NOT AVAILABLE is not displayed", isButtonNotAvailableDisplayed());
         return this;
     }
@@ -115,6 +123,41 @@ public class InsideTheOrderPage extends OrdersPageWithHeaders{
         webDriverWait10.until(ExpectedConditions.visibilityOf(buttonConfirmAvailabilityActive));
         Assert.assertEquals("The button did not change the text", text, buttonConfirmAvailabilityActive.getText());
         logger.info("The button changed the text to " + buttonConfirmAvailabilityActive.getText());
+        return this;
+    }
+
+    public InsideTheOrderPage checkIsButtonCancelOrderActive() {
+        webDriverWait10.until(ExpectedConditions.visibilityOf(buttonCancelOrder));
+        Assert.assertTrue("", isButtonCancelOrderDisplay());
+        return this;
+    }
+
+    private boolean isButtonCancelOrderDisplay() {
+        return isElementDisplayed(buttonCancelOrder);
+    }
+
+    public InsideTheOrderPage clickButtonCancelOrder() {
+        webDriverWait10.until(ExpectedConditions.elementToBeClickable(buttonCancelOrder));
+        clickOnElement(buttonCancelOrder);
+        return this;
+    }
+
+    public InsideTheOrderPage checkIsButtonConfirmAvailabilityNotActiveNotDisplay() {
+        waitTime();
+//        webDriverWait10.until(ExpectedConditions.invisibilityOf(buttonConfirmAvailabilityNotActive));
+        Assert.assertFalse("Button is display", isButtonConfirmAvailabilityNotActive());
+        return this;
+    }
+
+    public InsideTheOrderPage checkIsButtonConfirmAvailabilityActiveNotDisplay() {
+        waitTime();
+        Assert.assertFalse("Button is display", isButtonConfirmAvailabilityActive());
+        return this;
+    }
+
+    public InsideTheOrderPage checkIsButtonCancelOrderActiveNotDisplay() {
+        waitTime();
+        Assert.assertFalse("Button is display", isButtonCancelOrderDisplay());
         return this;
     }
 }

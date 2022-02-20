@@ -3,7 +3,7 @@ package cancelOrderTest;
 import baseTest.BaseTest;
 import org.junit.Test;
 
-public class CancelOrderTest extends BaseTest {
+public class CancelOrderNotAvailableTest extends BaseTest {
     @Test
     public void cancelOrderNotAvailable(){
         loginPage

@@ -60,7 +60,7 @@ public class ParentPage {
     protected void waitTime(){
         //TODO wait  "лучше не использовать, может не проснуться"
         try {
-            Thread.sleep(500);
+            Thread.sleep(400);
         }catch (InterruptedException e){
             e.printStackTrace();
         }
