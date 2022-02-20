@@ -29,6 +29,21 @@ public class InformationBoxOnThePopUpp extends OrdersPageWithHeaders{
     @FindBy(xpath = ".//*[@class='v-card v-sheet theme--light']//..//span[text()='Товара нет в наличии']")
     private WebElement popupNotAvailable;
 
+    @FindBy(xpath = ".//*[@class='StatusInfo v-card v-sheet theme--light']")
+    private WebElement infoBoxWithCancelReason;
+
+    @FindBy(xpath = ".//*[@class='StatusInfo-body']")
+    private WebElement levelWithCancelReason;
+
+    @FindBy(xpath = ".//*[@class='StatusInfo-body']//..//*[@role='radiogroup']//..//*[@class='v-radio theme--light'][2]//*[@class='v-input--selection-controls__input']")
+    private WebElement radiobuttonCancelReason;
+
+    @FindBy(xpath = ".//button[@class='text-none v-btn v-btn--disabled v-btn--large theme--light primary--text']")
+    private WebElement radiobuttonCancelReasonNotActive;
+
+    @FindBy(xpath = ".//button[@class='text-none v-btn v-btn--large theme--light primary'][2]")
+    private WebElement buttonCancelOrder;
+
     public InformationBoxOnThePopUpp(WebDriver webDriver) {
         super(webDriver);
     }
@@ -45,6 +60,7 @@ public class InformationBoxOnThePopUpp extends OrdersPageWithHeaders{
     }
 
     public InformationBoxOnThePopUpp clickButtonConfirmForPacking() {
+        webDriverWait10.until(ExpectedConditions.elementToBeClickable(buttonConfirm));
         clickOnElement(buttonConfirm);
         return this;
     }
@@ -98,6 +114,58 @@ public class InformationBoxOnThePopUpp extends OrdersPageWithHeaders{
         webDriverWait10.until(ExpectedConditions.visibilityOf(popupNotAvailable));
         Assert.assertEquals("This is not a window out of stock", text, popupNotAvailable.getText());
         logger.info(popupNotAvailable);
+        return this;
+    }
+
+    public InformationBoxOnThePopUpp checkIsInfoBoxWithCancelReason() {
+        webDriverWait10.until(ExpectedConditions.visibilityOf(infoBoxWithCancelReason));
+        Assert.assertTrue("Box With Cancel Reason is not displayed", isIsInfoBoxWithCancelReasonDisplayed());
+        return this;
+    }
+
+    private boolean isIsInfoBoxWithCancelReasonDisplayed() {
+        return isElementDisplayed(infoBoxWithCancelReason);
+    }
+
+    public InformationBoxOnThePopUpp checkAvailableCancelReason() {
+        webDriverWait10.until(ExpectedConditions.visibilityOf(levelWithCancelReason));
+        Assert.assertTrue("Level with CANCEL REASON is not displayed", isLevelWithCancelReasonDisplayed());
+        return this;
+    }
+
+    private boolean isLevelWithCancelReasonDisplayed() {
+        return isElementDisplayed(levelWithCancelReason);
+    }
+
+    public InformationBoxOnThePopUpp clickCancelReasonRadiobutton() {
+        webDriverWait10.until(ExpectedConditions.visibilityOf(radiobuttonCancelReason));
+        clickOnElement(radiobuttonCancelReason);
+        return this;
+    }
+
+    public InformationBoxOnThePopUpp checkIsButtonCancelOrderNotActive() {
+        webDriverWait10.until(ExpectedConditions.visibilityOf(radiobuttonCancelReasonNotActive));
+        Assert.assertTrue("Button Cancel Order Not Active is not displayed", isButtonCancelOrderNotActiveDisplayed());
+        return this;
+    }
+
+    private boolean isButtonCancelOrderNotActiveDisplayed() {
+        return isElementDisplayed(radiobuttonCancelReasonNotActive);
+    }
+
+    public InformationBoxOnThePopUpp checkIsButtonCancelOrderActive() {
+        webDriverWait10.until(ExpectedConditions.visibilityOf(buttonCancelOrder));
+        Assert.assertTrue("Button CANCEL ORDER is not active", isButtonCancelOrderDisplayed());
+        return this;
+    }
+
+    private boolean isButtonCancelOrderDisplayed() {
+        return isElementDisplayed(buttonCancelOrder);
+    }
+
+    public InformationBoxOnThePopUpp clickButtonCancelOrder() {
+        webDriverWait10.until(ExpectedConditions.elementToBeClickable(buttonCancelOrder));
+        clickOnElement(buttonCancelOrder);
         return this;
     }
 }
